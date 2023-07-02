@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
 import Button from '../../UI/Button';
+import { useSelector } from 'react-redux';
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -42,6 +43,7 @@ const fakeCart = [
 function CreateOrder() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
+  const username = useSelector((state) => state.user.username);
 
   const formErrors = useActionData();
 
@@ -59,6 +61,7 @@ function CreateOrder() {
             <input
               type="text"
               name="customer"
+              defaultValue={username}
               required
               className="input w-full"
             />
