@@ -159,6 +159,7 @@ export async function action({ request }) {
   };
 
   const errors = {};
+
   if (!isValidPhone(order.phone))
     errors.phone =
       'Please give us your correct phone number. We might need it to contact you.';
